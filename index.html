@@ -100,6 +100,7 @@
     100% { transform: scale(0.5) translateY(0); opacity: 0.4; }
   }
 
+  /* Player */
   .music {
     text-align: center;
     margin-top: 35px;
@@ -111,6 +112,7 @@
     border-radius: 10px;
   }
 
+  /* Jogos */
   .covers {
     margin-top: 40px;
     display: flex;
@@ -129,6 +131,27 @@
   .covers img:hover {
     transform: scale(1.07);
     box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+  }
+
+  /* Floating Balloons & Hearts */
+  .floating-item {
+    position: fixed;
+    bottom: -120px;
+    opacity: 0.9;
+    z-index: 2;
+    animation: rise 12s linear infinite;
+    pointer-events: none;
+  }
+
+  @keyframes rise {
+    0% {
+      transform: translateY(0) scale(1);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(-120vh) scale(1.2);
+      opacity: 0;
+    }
   }
 
   @media (max-width: 600px) {
@@ -158,6 +181,7 @@
 
 <body>
 
+<!-- Flores -->
 <div class="flowers">
   <img src="https://www.svgrepo.com/show/492401/flower.svg" class="flower" style="left: 5%; animation-duration: 17s;">
   <img src="https://www.svgrepo.com/show/492401/flower.svg" class="flower" style="left: 25%; animation-duration: 13s;">
@@ -166,6 +190,7 @@
   <img src="https://www.svgrepo.com/show/492401/flower.svg" class="flower" style="left: 90%; animation-duration: 20s;">
 </div>
 
+<!-- Brilhos -->
 <script>
   for (let i = 0; i < 40; i++) {
     const s = document.createElement("div");
@@ -183,17 +208,7 @@
   <p>
 Feliz aniversário, Rayzoca!
 
-Hoje você comemora mais um ano de vida. Eu sei o quanto isso é importante para você, então imagino que esteja animada e feliz. Desejo ainda mais felicidade para toda a sua vida, que nada tire o brilho que você carrega, seja sempre essa garota maravilhosa, educada e gentil.
-
-A sua vida se tornou importante para mim, e é claro que eu também vou comemorar esse dia. Gosto muito de você, Ray. Eu amo jogar com você todos os dias, conversar e ouvir sua voz — mas isso não é tudo que define sua importância para mim. Vai muito além.
-
-Essa é a data que marcou o início da sua existência, e graças a Deus isso aconteceu. Hoje você faz parte da minha vida, e aos poucos você conquistou um espaço no meu coração. Mesmo que o pior aconteça, esse lugar sempre será seu, e de lá você nunca vai sair. Eu também prometo te eternizar na memória da minha alma.
-
-Ter você por perto tem me deixado muito feliz. Eu nunca senti que precisava de novos amigos, mas você me mostrou, de um jeito inesperado, que eu sempre precisei de uma amizade — na verdade, eu precisava de você. Só você. Agora está tudo bem, não precisa aparecer mais ninguém.
-
-Sou grato por você existir. Só não pode parar. 😸
-Que o nosso Criador ilumine seus dias mais escuros 🙌🏽
-
+Hoje você comemora mais um ano de vida — e eu sei o quanto isso significa para você...
   </p>
 
   <div class="covers">
@@ -205,7 +220,7 @@ Que o nosso Criador ilumine seus dias mais escuros 🙌🏽
     <img src="https://via.placeholder.com/300x400.png?text=Epic+Minigames">
   </div>
 
-  <!-- 🎵 Player de música corrigido -->
+  <!-- Música -->
   <div class="music">
     <audio id="bgm" controls autoplay preload="auto">
       <source src="./blue-_slowed-down_.mp3" type="audio/mpeg">
@@ -219,11 +234,9 @@ Que o nosso Criador ilumine seus dias mais escuros 🙌🏽
 <script>
 document.addEventListener("DOMContentLoaded", () => {
   const audio = document.getElementById("bgm");
-
   if (!audio) return;
 
   audio.volume = 1.0;
-
   audio.play().catch(() => {});
 
   const playAudio = () => {
@@ -237,6 +250,32 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 </script>
 
+<!-- Balões e Corações -->
+<script>
+function spawnFloatingItem(type) {
+  const item = document.createElement("div");
+  item.classList.add("floating-item");
+
+  const size = Math.random() * 40 + 40; 
+  item.style.width = size + "px";
+  item.style.left = Math.random() * 100 + "vw";
+  item.style.animationDuration = (Math.random() * 6 + 8) + "s";
+
+  if (type === "balloon") {
+    item.innerHTML = "🎈";
+  } else {
+    item.innerHTML = "❤️";
+  }
+
+  item.style.fontSize = size + "px";
+  document.body.appendChild(item);
+
+  setTimeout(() => item.remove(), 12000);
+}
+
+setInterval(() => spawnFloatingItem("balloon"), 2200);
+setInterval(() => spawnFloatingItem("heart"), 2600);
+</script>
+
 </body>
 </html>
-
