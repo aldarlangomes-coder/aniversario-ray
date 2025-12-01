@@ -45,4 +45,189 @@
 
   h1 {
     text-align: center;
-    font-family: 'Playfair D
+    font-family: 'Playfair Display', serif;
+    font-size: 46px;
+    color: #d14b82;
+    margin-bottom: 30px;
+    animation: glow 2.5s infinite alternate;
+  }
+
+  @keyframes glow {
+    0% { text-shadow: 0 0 6px #ff9ac7; }
+    100% { text-shadow: 0 0 18px #ff66a3; }
+  }
+
+  p {
+    font-size: 20px;
+    line-height: 1.8;
+    color: #444;
+    white-space: pre-line;
+  }
+
+  .flowers {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  .flower {
+    position: absolute;
+    width: 90px;
+    opacity: 0.6;
+    animation: float 15s linear infinite;
+  }
+
+  @keyframes float {
+    from { transform: translateY(110%) rotate(0deg); }
+    to { transform: translateY(-120%) rotate(360deg); }
+  }
+
+  .sparkle {
+    position: fixed;
+    width: 6px;
+    height: 6px;
+    background: radial-gradient(circle, #fff, rgba(255,255,255,0));
+    border-radius: 50%;
+    opacity: 0.7;
+    animation: sparkleAnim 3s infinite ease-in-out;
+    pointer-events: none;
+  }
+
+  @keyframes sparkleAnim {
+    0% { transform: scale(0.5) translateY(0); opacity: 0.4; }
+    50% { transform: scale(1.2) translateY(-20px); opacity: 1; }
+    100% { transform: scale(0.5) translateY(0); opacity: 0.4; }
+  }
+
+  .music {
+    text-align: center;
+    margin-top: 35px;
+  }
+
+  audio {
+    width: 70%;
+    margin-top: 15px;
+    border-radius: 10px;
+  }
+
+  .covers {
+    margin-top: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 18px;
+  }
+
+  .covers img {
+    width: 150px;
+    border-radius: 14px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+    transition: transform .3s, box-shadow .3s;
+  }
+
+  .covers img:hover {
+    transform: scale(1.07);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+  }
+
+  @media (max-width: 600px) {
+    .container {
+      padding: 25px;
+      margin: 20px;
+    }
+
+    h1 {
+      font-size: 35px;
+    }
+
+    p {
+      font-size: 18px;
+    }
+
+    .covers img {
+      width: 130px;
+    }
+
+    audio {
+      width: 95%;
+    }
+  }
+</style>
+</head>
+
+<body>
+
+<div class="flowers">
+  <img src="https://www.svgrepo.com/show/492401/flower.svg" class="flower" style="left: 5%; animation-duration: 17s;">
+  <img src="https://www.svgrepo.com/show/492401/flower.svg" class="flower" style="left: 25%; animation-duration: 13s;">
+  <img src="https://www.svgrepo.com/show/492401/flower.svg" class="flower" style="left: 50%; animation-duration: 19s;">
+  <img src="https://www.svgrepo.com/show/492401/flower.svg" class="flower" style="left: 75%; animation-duration: 14s;">
+  <img src="https://www.svgrepo.com/show/492401/flower.svg" class="flower" style="left: 90%; animation-duration: 20s;">
+</div>
+
+<script>
+  for (let i = 0; i < 40; i++) {
+    const s = document.createElement("div");
+    s.classList.add("sparkle");
+    s.style.left = Math.random() * 100 + "%";
+    s.style.top = Math.random() * 100 + "%";
+    s.style.animationDelay = Math.random() * 3 + "s";
+    document.body.appendChild(s);
+  }
+</script>
+
+<div class="container">
+  <h1>Feliz Aniversário, Rayzoca 🎀</h1>
+
+  <p>
+Feliz aniversário, Rayzoca!
+
+Hoje você comemora mais um ano de vida — e eu sei o quanto isso significa para você. Espero que esteja feliz, animada e rodeada de tudo que te faz bem. Desejo que o resto da sua vida seja ainda mais iluminado, leve e cheio de paz. Que nada e ninguém apareça para te desanimar ou tentar apagar quem você é.
+
+Você se tornou importante para mim, e é claro que eu vou comemorar esse dia também...
+  </p>
+
+  <div class="covers">
+    <img src="https://via.placeholder.com/300x400.png?text=Death+Ball">
+    <img src="https://via.placeholder.com/300x400.png?text=Murder+vs+Sheriff">
+    <img src="https://via.placeholder.com/300x400.png?text=Marretão">
+    <img src="https://via.placeholder.com/300x400.png?text=Jogo+da+Aranha">
+    <img src="https://via.placeholder.com/300x400.png?text=Afiado">
+    <img src="https://via.placeholder.com/300x400.png?text=Epic+Minigames">
+  </div>
+
+  <!-- 🎵 Player de música corrigido -->
+  <div class="music">
+    <audio id="bgm" controls autoplay preload="auto">
+      <source src="./blue-_slowed-down_.mp3" type="audio/mpeg">
+      Seu navegador não suporta áudio.
+    </audio>
+  </div>
+
+</div>
+
+<!-- Autoplay -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const audio = document.getElementById("bgm");
+
+  if (!audio) return;
+
+  audio.volume = 1.0;
+
+  audio.play().catch(() => {});
+
+  const playAudio = () => {
+    audio.play().catch(() => {});
+    document.removeEventListener("click", playAudio);
+    document.removeEventListener("touchstart", playAudio);
+  };
+
+  document.addEventListener("click", playAudio);
+  document.addEventListener("touchstart", playAudio);
+});
+</script>
+
+</body>
+</html>
