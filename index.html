@@ -3,164 +3,196 @@
 <head>
 <meta charset="UTF-8">
 <title>Feliz Aniversário, Rayzoca 🎀</title>
+
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
 <style>
   *{margin:0;padding:0;box-sizing:border-box}
-  body{font-family:'Inter',sans-serif;background:linear-gradient(160deg,#ffe9f4,#ffd6eb,#ffeef7);min-height:100vh;overflow-x:hidden;}
-  .container{max-width:900px;margin:50px auto;background:rgba(255,255,255,0.75);padding:40px;border-radius:20px;backdrop-filter:blur(10px);box-shadow:0 8px 30px rgba(0,0,0,0.08)}
-  h1{text-align:center;font-family:'Playfair Display',serif;font-size:42px;color:#d14b82;margin-bottom:20px}
-  p{font-size:18px;color:#444;line-height:1.7;white-space:pre-line}
-  .covers{margin-top:28px;display:flex;flex-wrap:wrap;gap:16px;justify-content:center}
-  .covers img{width:150px;height:90px;object-fit:cover;border-radius:12px;box-shadow:0 6px 18px rgba(0,0,0,0.12);transition:transform .25s}
-  .covers img:hover{transform:scale(1.06)}
-  .music{margin-top:30px;text-align:center;position:relative}
-  audio{width:70%;border-radius:10px}
-  /* Botão grande de tocar caso autoplay seja bloqueado */
-  #play-overlay{position:absolute;left:50%;transform:translateX(-50%);top:-18px;display:none;background:#d14b82;color:white;padding:12px 20px;border-radius:12px;cursor:pointer;box-shadow:0 6px 18px rgba(0,0,0,0.15)}
-  /* Flores / brilhos / balões */
-  .flowers{position:fixed;inset:0;pointer-events:none;z-index:-1}
-  .flower{position:absolute;width:90px;opacity:.6;animation:float 16s linear infinite}
-  @keyframes float{from{transform:translateY(110%)}to{transform:translateY(-120%)}}
-  .sparkle{position:fixed;width:6px;height:6px;background:radial-gradient(circle,#fff,rgba(255,255,255,0));border-radius:50%;opacity:.7;animation:sparkleAnim 3s infinite;pointer-events:none}
-  @keyframes sparkleAnim{0%{transform:scale(.5)}50%{transform:scale(1.2)}100%{transform:scale(.5)}}
-  .floating-item{position:fixed;bottom:-120px;z-index:2;pointer-events:none;animation:rise 12s linear infinite}
-  @keyframes rise{0%{transform:translateY(0)}100%{transform:translateY(-120vh)}}
-  @media(max-width:600px){.container{margin:20px;padding:20px}audio{width:95%}.covers img{width:120px;height:80px}}
+  body{
+    font-family:'Inter',sans-serif;
+    background:linear-gradient(160deg,#ffe9f4,#ffd6eb,#ffeef7);
+    min-height:100vh;
+    overflow-x:hidden;
+  }
+
+  .container{
+    max-width:900px;
+    margin:50px auto;
+    background:rgba(255,255,255,0.75);
+    padding:40px;
+    border-radius:25px;
+    backdrop-filter:blur(10px);
+    box-shadow:0 0 25px rgba(0,0,0,0.1);
+  }
+
+  h1{
+    text-align:center;
+    font-family:'Playfair Display',serif;
+    font-size:46px;
+    color:#d14b82;
+    margin-bottom:25px;
+  }
+
+  p{
+    font-size:20px;
+    line-height:1.7;
+    color:#444;
+    white-space:pre-line;
+  }
+
+  .flowers img{
+    position:absolute;
+    width:90px;
+    opacity:.7;
+    animation:float 15s linear infinite;
+  }
+
+  @keyframes float{
+    from{transform:translateY(110%) rotate(0deg);}
+    to{transform:translateY(-120%) rotate(360deg);}
+  }
+
+  .sparkle{
+    position:fixed;
+    width:6px;
+    height:6px;
+    background:radial-gradient(circle,#fff,rgba(255,255,255,0));
+    border-radius:50%;
+    opacity:0.7;
+    animation:sparkleAnim 3s infinite ease-in-out;
+    pointer-events:none;
+  }
+
+  @keyframes sparkleAnim{
+    0%{transform:scale(.6)}
+    50%{transform:scale(1.2)}
+    100%{transform:scale(.6)}
+  }
+
+  .covers{
+    margin-top:35px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:18px;
+    justify-content:center;
+  }
+
+  .covers img{
+    width:150px;
+    height:100px;
+    object-fit:cover;
+    border-radius:14px;
+    box-shadow:0 4px 16px rgba(0,0,0,0.15);
+    transition:transform .3s;
+  }
+
+  .covers img:hover{
+    transform:scale(1.07);
+  }
+
+  .music{
+    margin-top:35px;
+    text-align:center;
+  }
+
+  audio{
+    width:70%;
+    margin-top:15px;
+    border-radius:10px;
+  }
+
+  /* balões e corações */
+  .float{
+    position:fixed;
+    bottom:-100px;
+    font-size:40px;
+    z-index:5;
+    animation:up 10s linear infinite;
+    pointer-events:none;
+  }
+
+  @keyframes up{
+    0%{transform:translateY(0);}
+    100%{transform:translateY(-120vh);}
+  }
 </style>
 </head>
+
 <body>
 
 <!-- FLORES -->
 <div class="flowers">
-  <img src="https://www.svgrepo.com/show/492401/flower.svg" class="flower" style="left:6%;top:10%;animation-duration:18s">
-  <img src="https://www.svgrepo.com/show/492401/flower.svg" class="flower" style="left:28%;top:30%;animation-duration:14s">
-  <img src="https://www.svgrepo.com/show/492401/flower.svg" class="flower" style="left:55%;top:20%;animation-duration:20s">
+  <img src="https://www.svgrepo.com/show/492401/flower.svg" style="left:10%; animation-duration:17s;">
+  <img src="https://www.svgrepo.com/show/492401/flower.svg" style="left:40%; animation-duration:14s;">
+  <img src="https://www.svgrepo.com/show/492401/flower.svg" style="left:70%; animation-duration:20s;">
 </div>
 
+<!-- BRILHOS -->
 <script>
-  for (let i=0;i<30;i++){
-    const s=document.createElement('div');
-    s.className='sparkle';
-    s.style.left=Math.random()*100+'%';
-    s.style.top=Math.random()*100+'%';
-    s.style.animationDelay=Math.random()*2+'s';
-    document.body.appendChild(s);
-  }
+for(let i=0; i<40; i++){
+  const s=document.createElement("div");
+  s.classList.add("sparkle");
+  s.style.left=Math.random()*100+"%";
+  s.style.top=Math.random()*100+"%";
+  s.style.animationDelay=Math.random()*3+"s";
+  document.body.appendChild(s);
+}
 </script>
 
 <div class="container">
   <h1>Feliz Aniversário, Rayzoca 🎀</h1>
+
   <p>
 Feliz aniversário, Rayzoca!
+
 Hoje você comemora mais um ano de vida...
+(RESTO DO SEU TEXTO AQUI)
   </p>
 
-  <!-- CAPA DOS JOGOS (com onerror fallback) -->
-  <div class="covers" id="covers">
-    <img data-alt="Murder Mystery 2" src="https://tr.rbxcdn.com/3c9b391d4b2666ebadc177a64e124593/768/432/Image/Png" alt="Murder Mystery 2" onerror="imgFallback(this)">
-    <img data-alt="Brookhaven" src="https://tr.rbxcdn.com/6cc6cc21dfec66f64fdd89f5f44098a7/768/432/Image/Png" alt="Brookhaven" onerror="imgFallback(this)">
-    <img data-alt="Piggy" src="https://tr.rbxcdn.com/6ae7355a5bd6f66a701d89f5cb918416/768/432/Image/Png" alt="Piggy" onerror="imgFallback(this)">
-    <img data-alt="Adopt Me" src="https://tr.rbxcdn.com/37b3fdced9d56a09dfcbbe8b4a259ef1/768/432/Image/Png" alt="Adopt Me" onerror="imgFallback(this)">
-    <img data-alt="Blox Fruits" src="https://tr.rbxcdn.com/6d194f94f0bff1b8c8acbcc3ac71fd32/768/432/Image/Png" alt="Blox Fruits" onerror="imgFallback(this)">
-    <img data-alt="Doors" src="https://tr.rbxcdn.com/d57f75ad8e7a9b9642c4992ddb5a0df7/768/432/Image/Png" alt="Doors" onerror="imgFallback(this)">
+  <!-- GALERIA DE JOGOS -->
+  <div class="covers">
+
+    <!-- Murder Mystery 2 -->
+    <img src="https://www.roblox.com/asset-thumbnail/image?assetId=142823291&width=420&height=420&format=png" alt="Murder Mystery 2">
+
+    <!-- Brookhaven -->
+    <img src="https://www.roblox.com/asset-thumbnail/image?assetId=4924922222&width=420&height=420&format=png" alt="Brookhaven">
+
+    <!-- Piggy -->
+    <img src="https://www.roblox.com/asset-thumbnail/image?assetId=4626300779&width=420&height=420&format=png" alt="Piggy">
+
+    <!-- Adopt Me -->
+    <img src="https://www.roblox.com/asset-thumbnail/image?assetId=4517039792&width=420&height=420&format=png" alt="Adopt Me">
+
+    <!-- Blox Fruits -->
+    <img src="https://www.roblox.com/asset-thumbnail/image?assetId=2753915549&width=420&height=420&format=png" alt="Blox Fruits">
+
+    <!-- Doors -->
+    <img src="https://www.roblox.com/asset-thumbnail/image?assetId=6516141723&width=420&height=420&format=png" alt="Doors">
+
   </div>
 
   <!-- MÚSICA -->
   <div class="music">
-    <div id="play-overlay">Clique aqui para tocar a música 🎧</div>
-    <audio id="bgm" controls preload="auto">
+    <audio id="bgm" controls autoplay>
       <source src="./blue-_slowed-down_.mp3" type="audio/mpeg">
-      Seu navegador não suporta áudio.
     </audio>
   </div>
+
 </div>
 
-<!-- SCRIPTS: diagnóstico, fallback de imagens, e spawn de balões/corações -->
+<!-- BALÕES E CORAÇÕES -->
 <script>
-/* ---------- fallback para imagens que não carregarem ---------- */
-function imgFallback(imgEl){
-  console.warn('Imagem falhou:', imgEl.dataset.alt || imgEl.alt, imgEl.src);
-  // substitui por placeholder com texto do jogo
-  const text = encodeURIComponent(imgEl.dataset.alt || 'Roblox');
-  imgEl.src = 'https://via.placeholder.com/420x240.png?text=' + text;
-  imgEl.style.objectFit = 'cover';
-}
-
-/* ---------- Autoplay fix: mostrar botão se necessário ---------- */
-document.addEventListener('DOMContentLoaded', () => {
-  const audio = document.getElementById('bgm');
-  const overlay = document.getElementById('play-overlay');
-
-  // checar rapidamente se o arquivo do mp3 existe (vai aparecer 404 no console se não)
-  fetch('./blue-_slowed-down_.mp3', {method:'HEAD'}).then(res=>{
-    if (!res.ok) {
-      console.error('MP3 não encontrado em ./blue-_slowed-down_.mp3 — verifique se subiu o arquivo para a raiz do repositório.');
-      overlay.textContent = 'Áudio ausente: envie blue-_slowed-down_.mp3';
-      overlay.style.display = 'block';
-      overlay.style.background = '#b33c6d';
-      return;
-    } else {
-      console.log('MP3 encontrado: está no repositório (./blue-_slowed-down_.mp3).');
-    }
-  }).catch(err=>{
-    console.error('Erro ao verificar MP3:', err);
-  });
-
-  // tenta autoplay; se for rejeitado, mostra overlay grande para usuário clicar
-  function tryPlay(){
-    audio.play().then(()=> {
-      overlay.style.display = 'none';
-    }).catch(()=> {
-      overlay.style.display = 'block';
-    });
-  }
-
-  tryPlay();
-
-  overlay.addEventListener('click', () => {
-    audio.play().catch(()=>{});
-    overlay.style.display = 'none';
-  });
-
-  // permitir também que primeiro clique na página toque a música
-  const startOnUserGesture = () => {
-    audio.play().catch(()=>{});
-    document.removeEventListener('click', startOnUserGesture);
-    document.removeEventListener('touchstart', startOnUserGesture);
-  };
-  document.addEventListener('click', startOnUserGesture);
-  document.addEventListener('touchstart', startOnUserGesture);
-});
-
-/* ---------- Balões e corações flutuantes ---------- */
-function spawnFloatingItem(type) {
-  const el = document.createElement('div');
-  el.className = 'floating-item';
-  const size = Math.random()*40 + 40;
-  el.style.left = Math.random()*100 + 'vw';
-  el.style.fontSize = size + 'px';
-  el.style.animationDuration = (Math.random()*6 + 8) + 's';
-  el.style.pointerEvents = 'none';
-  el.innerHTML = (type === 'balloon') ? '🎈' : '❤️';
-  document.body.appendChild(el);
-  setTimeout(()=> el.remove(), 14000);
-}
-setInterval(()=> spawnFloatingItem('balloon'), 2200);
-setInterval(()=> spawnFloatingItem('heart'), 2500);
-
-/* ---------- Script de debug: mostra no console o status das imagens ---------- */
-window.addEventListener('load', () => {
-  const imgs = Array.from(document.querySelectorAll('.covers img'));
-  imgs.forEach(img => {
-    if (img.complete && img.naturalWidth !== 0) {
-      console.log('Imagem carregada:', img.alt || img.dataset.alt, img.src);
-    } else {
-      console.warn('Imagem não carregou (vai tentar fallback):', img.alt || img.dataset.alt, img.src);
-      // forçar fallback agora se estiver "erro"
-      if (img.naturalWidth === 0) imgFallback(img);
-    }
-  });
-});
+setInterval(()=>{
+  const em = document.createElement("div");
+  em.classList.add("float");
+  em.textContent = Math.random() > 0.5 ? "🎈" : "❤️";
+  em.style.left = Math.random()*100+"vw";
+  em.style.fontSize = (Math.random()*20 + 30)+"px";
+  em.style.animationDuration = (Math.random()*6 + 6)+"s";
+  document.body.appendChild(em);
+  setTimeout(()=>em.remove(), 12000);
+}, 1500);
 </script>
 
 </body>
