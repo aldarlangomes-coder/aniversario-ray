@@ -8,11 +8,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
 
   body {
     font-family: 'Inter', sans-serif;
@@ -22,10 +18,7 @@
     animation: fadeIn 1.5s ease-in-out;
   }
 
-  @keyframes fadeIn { 
-    from { opacity: 0; } 
-    to { opacity: 1; } 
-  }
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
   .container {
     max-width: 900px;
@@ -100,19 +93,9 @@
     100% { transform: scale(0.5) translateY(0); opacity: 0.4; }
   }
 
-  /* Player */
-  .music {
-    text-align: center;
-    margin-top: 35px;
-  }
+  .music { text-align: center; margin-top: 35px; }
+  audio { width: 70%; margin-top: 15px; border-radius: 10px; }
 
-  audio {
-    width: 70%;
-    margin-top: 15px;
-    border-radius: 10px;
-  }
-
-  /* Jogos */
   .covers {
     margin-top: 40px;
     display: flex;
@@ -127,13 +110,12 @@
     box-shadow: 0 4px 16px rgba(0,0,0,0.15);
     transition: transform .3s, box-shadow .3s;
   }
-
   .covers img:hover {
     transform: scale(1.07);
     box-shadow: 0 6px 20px rgba(0,0,0,0.2);
   }
 
-  /* Floating Balloons & Hearts */
+  /* BALÕES + CORAÇÕES */
   .floating-item {
     position: fixed;
     bottom: -120px;
@@ -144,44 +126,23 @@
   }
 
   @keyframes rise {
-    0% {
-      transform: translateY(0) scale(1);
-      opacity: 1;
-    }
-    100% {
-      transform: translateY(-120vh) scale(1.2);
-      opacity: 0;
-    }
+    0% { transform: translateY(0) scale(1); opacity: 1; }
+    100% { transform: translateY(-120vh) scale(1.2); opacity: 0; }
   }
 
   @media (max-width: 600px) {
-    .container {
-      padding: 25px;
-      margin: 20px;
-    }
-
-    h1 {
-      font-size: 35px;
-    }
-
-    p {
-      font-size: 18px;
-    }
-
-    .covers img {
-      width: 130px;
-    }
-
-    audio {
-      width: 95%;
-    }
+    .container { padding: 25px; margin: 20px; }
+    h1 { font-size: 35px; }
+    p { font-size: 18px; }
+    .covers img { width: 130px; }
+    audio { width: 95%; }
   }
 </style>
 </head>
 
 <body>
 
-<!-- Flores -->
+<!-- FLORES -->
 <div class="flowers">
   <img src="https://www.svgrepo.com/show/492401/flower.svg" class="flower" style="left: 5%; animation-duration: 17s;">
   <img src="https://www.svgrepo.com/show/492401/flower.svg" class="flower" style="left: 25%; animation-duration: 13s;">
@@ -190,16 +151,16 @@
   <img src="https://www.svgrepo.com/show/492401/flower.svg" class="flower" style="left: 90%; animation-duration: 20s;">
 </div>
 
-<!-- Brilhos -->
+<!-- BRILHOS -->
 <script>
-  for (let i = 0; i < 40; i++) {
-    const s = document.createElement("div");
-    s.classList.add("sparkle");
-    s.style.left = Math.random() * 100 + "%";
-    s.style.top = Math.random() * 100 + "%";
-    s.style.animationDelay = Math.random() * 3 + "s";
-    document.body.appendChild(s);
-  }
+for (let i = 0; i < 40; i++) {
+  const s = document.createElement("div");
+  s.classList.add("sparkle");
+  s.style.left = Math.random() * 100 + "%";
+  s.style.top = Math.random() * 100 + "%";
+  s.style.animationDelay = Math.random() * 3 + "s";
+  document.body.appendChild(s);
+}
 </script>
 
 <div class="container">
@@ -208,29 +169,29 @@
   <p>
 Feliz aniversário, Rayzoca!
 
-Hoje você comemora mais um ano de vida — e eu sei o quanto isso significa para você...
+Hoje você comemora mais um ano de vida...
   </p>
 
+  <!-- FOTOS DE JOGOS ROBLOX -->
   <div class="covers">
-    <img src="https://via.placeholder.com/300x400.png?text=Death+Ball">
-    <img src="https://via.placeholder.com/300x400.png?text=Murder+vs+Sheriff">
-    <img src="https://via.placeholder.com/300x400.png?text=Marretão">
-    <img src="https://via.placeholder.com/300x400.png?text=Jogo+da+Aranha">
-    <img src="https://via.placeholder.com/300x400.png?text=Afiado">
-    <img src="https://via.placeholder.com/300x400.png?text=Epic+Minigames">
+    <img src="https://tr.rbxcdn.com/3c9b391d4b2666ebadc177a64e124593/768/432/Image/Png" alt="Murder Mystery 2">
+    <img src="https://tr.rbxcdn.com/6cc6cc21dfec66f64fdd89f5f44098a7/768/432/Image/Png" alt="Brookhaven">
+    <img src="https://tr.rbxcdn.com/6ae7355a5bd6f66a701d89f5cb918416/768/432/Image/Png" alt="Piggy">
+    <img src="https://tr.rbxcdn.com/37b3fdced9d56a09dfcbbe8b4a259ef1/768/432/Image/Png" alt="Adopt Me">
+    <img src="https://tr.rbxcdn.com/6d194f94f0bff1b8c8acbcc3ac71fd32/768/432/Image/Png" alt="Blox Fruits">
+    <img src="https://tr.rbxcdn.com/d57f75ad8e7a9b9642c4992ddb5a0df7/768/432/Image/Png" alt="Doors">
   </div>
 
-  <!-- Música -->
+  <!-- MÚSICA -->
   <div class="music">
     <audio id="bgm" controls autoplay preload="auto">
       <source src="./blue-_slowed-down_.mp3" type="audio/mpeg">
       Seu navegador não suporta áudio.
     </audio>
   </div>
-
 </div>
 
-<!-- Autoplay -->
+<!-- AUTOPLAY FIX -->
 <script>
 document.addEventListener("DOMContentLoaded", () => {
   const audio = document.getElementById("bgm");
@@ -250,26 +211,20 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 </script>
 
-<!-- Balões e Corações -->
+<!-- BALÕES 🎈 + CORAÇÕES ❤️ -->
 <script>
 function spawnFloatingItem(type) {
   const item = document.createElement("div");
   item.classList.add("floating-item");
 
-  const size = Math.random() * 40 + 40; 
-  item.style.width = size + "px";
+  const size = Math.random() * 40 + 40;
   item.style.left = Math.random() * 100 + "vw";
   item.style.animationDuration = (Math.random() * 6 + 8) + "s";
-
-  if (type === "balloon") {
-    item.innerHTML = "🎈";
-  } else {
-    item.innerHTML = "❤️";
-  }
-
   item.style.fontSize = size + "px";
-  document.body.appendChild(item);
 
+  item.innerHTML = type === "balloon" ? "🎈" : "❤️";
+
+  document.body.appendChild(item);
   setTimeout(() => item.remove(), 12000);
 }
 
