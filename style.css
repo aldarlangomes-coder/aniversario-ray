@@ -1,0 +1,86 @@
+/* Corpo */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to bottom, #ffe6f0, #fff);
+  overflow-x: hidden;
+  text-align: center;
+}
+
+/* Flores animadas */
+.flowers {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.flower {
+  position: absolute;
+  top: -100px;
+  width: 50px;
+  animation-name: fall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes fall {
+  0% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(100vh); opacity: 0; }
+}
+
+/* Container principal */
+.container {
+  position: relative;
+  z-index: 1;
+  padding: 50px 20px;
+}
+
+h1 {
+  color: #e91e63;
+  font-size: 3em;
+}
+
+p {
+  font-size: 1.2em;
+  color: #333;
+  max-width: 700px;
+  margin: 20px auto;
+  line-height: 1.6;
+}
+
+/* Capas de jogos */
+.covers {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.covers img {
+  width: 150px;
+  border-radius: 10px;
+  transition: transform 0.3s;
+}
+
+.covers img:hover {
+  transform: scale(1.1);
+}
+
+/* Botão de música */
+.music a {
+  display: inline-block;
+  margin-top: 30px;
+  padding: 10px 20px;
+  background: #ff4081;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background 0.3s;
+}
+
+.music a:hover {
+  background: #e91e63;
+}
