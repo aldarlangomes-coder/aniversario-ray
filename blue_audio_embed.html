@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <title>Embed de Áudio</title>
+</head>
+<body>
+  <h3>Player de Áudio</h3>
+  <!-- Player simples com controle nativo -->
+  <audio id="my-audio" controls preload="metadata">
+    <source src="./blue-_slowed-down_.mp3" type="audio/mpeg">
+    Seu navegador não suporta o elemento de áudio.
+  </audio>
+
+  <!-- Exemplo de integração JS: play / pause -->
+  <div style="margin-top:12px;">
+    <button onclick="document.getElementById('my-audio').play()">Play</button>
+    <button onclick="document.getElementById('my-audio').pause()">Pause</button>
+  </div>
+</body>
+</html>
