@@ -2,198 +2,182 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<title>Feliz Aniversário, Rayzoca 🎀</title>
+<title>Feliz Aniversário, Rayzoca 🎀✨🎄</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
-  *{margin:0;padding:0;box-sizing:border-box}
-  body{
+*{margin:0;padding:0;box-sizing:border-box}
+body{
     font-family:'Inter',sans-serif;
-    background:linear-gradient(160deg,#ffe9f4,#ffd6eb,#ffeef7);
+    background:linear-gradient(160deg,#ffe9f4,#ffd6eb,#fff2f6);
     min-height:100vh;
     overflow-x:hidden;
-  }
+}
 
-  .container{
+/* CONTAINER */
+.container{
     max-width:900px;
     margin:50px auto;
-    background:rgba(255,255,255,0.75);
+    background:rgba(255,255,255,0.85);
     padding:40px;
     border-radius:25px;
     backdrop-filter:blur(10px);
     box-shadow:0 0 25px rgba(0,0,0,0.1);
-  }
+    border:4px dashed #d14b82;
+}
 
-  h1{
+/* TÍTULO */
+h1{
     text-align:center;
     font-family:'Playfair Display',serif;
     font-size:46px;
     color:#d14b82;
     margin-bottom:25px;
-  }
+    text-shadow:0 0 14px #ff6fa8;
+}
 
-  p{
+/* TEXTO */
+p{
     font-size:20px;
-    line-height:1.7;
+    line-height:1.8;
     color:#444;
     white-space:pre-line;
-  }
+}
 
-  .flowers img{
-    position:absolute;
-    width:90px;
-    opacity:.7;
-    animation:float 15s linear infinite;
-  }
-
-  @keyframes float{
-    from{transform:translateY(110%) rotate(0deg);}
-    to{transform:translateY(-120%) rotate(360deg);}
-  }
-
-  .sparkle{
+/* NEVE */
+.snow{
     position:fixed;
-    width:6px;
-    height:6px;
-    background:radial-gradient(circle,#fff,rgba(255,255,255,0));
+    top:-10px;
+    width:10px;
+    height:10px;
+    background:white;
     border-radius:50%;
-    opacity:0.7;
-    animation:sparkleAnim 3s infinite ease-in-out;
-    pointer-events:none;
-  }
+    opacity:0.8;
+    z-index:50;
+    animation:snowFall linear infinite;
+}
 
-  @keyframes sparkleAnim{
-    0%{transform:scale(.6)}
-    50%{transform:scale(1.2)}
-    100%{transform:scale(.6)}
-  }
+@keyframes snowFall{
+    to{transform:translateY(120vh);}
+}
 
-  .covers{
-    margin-top:35px;
-    display:flex;
-    flex-wrap:wrap;
-    gap:18px;
-    justify-content:center;
-  }
-
-  .covers img{
-    width:150px;
-    height:100px;
-    object-fit:cover;
-    border-radius:14px;
-    box-shadow:0 4px 16px rgba(0,0,0,0.15);
-    transition:transform .3s;
-  }
-
-  .covers img:hover{
-    transform:scale(1.07);
-  }
-
-  .music{
-    margin-top:35px;
-    text-align:center;
-  }
-
-  audio{
-    width:70%;
-    margin-top:15px;
-    border-radius:10px;
-  }
-
-  /* balões e corações */
-  .float{
+/* LUZES */
+.lights{
     position:fixed;
-    bottom:-100px;
-    font-size:40px;
-    z-index:5;
-    animation:up 10s linear infinite;
-    pointer-events:none;
-  }
+    top:0;
+    left:0;
+    width:100%;
+    display:flex;
+    justify-content:space-between;
+    padding:15px;
+    z-index:20;
+}
 
-  @keyframes up{
+.light{
+    width:18px;
+    height:28px;
+    border-radius:50%;
+    background:red;
+    box-shadow:0 0 12px red;
+    animation:blink 1.5s infinite alternate;
+}
+
+@keyframes blink{
+    0%{opacity:0.4;transform:scale(0.9);}
+    100%{opacity:1;transform:scale(1.1);}
+}
+
+/* ENFEITES NATALINOS */
+.decorate{
+    position:fixed;
+    bottom:-120px;
+    font-size:50px;
+    animation:rise 12s linear infinite;
+    pointer-events:none;
+    z-index:40;
+}
+
+@keyframes rise{
     0%{transform:translateY(0);}
     100%{transform:translateY(-120vh);}
-  }
+}
+
+.music{
+    margin-top:35px;
+    text-align:center;
+}
+
+audio{
+    width:70%;
+    border-radius:10px;
+}
 </style>
 </head>
 
 <body>
 
-<!-- FLORES -->
-<div class="flowers">
-  <img src="https://www.svgrepo.com/show/492401/flower.svg" style="left:10%; animation-duration:17s;">
-  <img src="https://www.svgrepo.com/show/492401/flower.svg" style="left:40%; animation-duration:14s;">
-  <img src="https://www.svgrepo.com/show/492401/flower.svg" style="left:70%; animation-duration:20s;">
+<!-- LUZES DE NATAL -->
+<div class="lights">
+    <div class="light" style="background:red; box-shadow:0 0 12px red;"></div>
+    <div class="light" style="background:green; box-shadow:0 0 12px green; animation-duration:1.2s"></div>
+    <div class="light" style="background:gold; box-shadow:0 0 12px gold; animation-duration:1.8s"></div>
+    <div class="light" style="background:blue; box-shadow:0 0 12px blue; animation-duration:1.4s"></div>
+    <div class="light" style="background:red; animation-duration:2s"></div>
+    <div class="light" style="background:green; animation-duration:1.3s"></div>
 </div>
 
-<!-- BRILHOS -->
 <script>
-for(let i=0; i<40; i++){
-  const s=document.createElement("div");
-  s.classList.add("sparkle");
-  s.style.left=Math.random()*100+"%";
-  s.style.top=Math.random()*100+"%";
-  s.style.animationDelay=Math.random()*3+"s";
-  document.body.appendChild(s);
+/* NEVE */
+for(let i=0;i<80;i++){
+    const s=document.createElement("div");
+    s.classList.add("snow");
+    s.style.left=Math.random()*100+"vw";
+    s.style.animationDuration=(Math.random()*5+5)+"s";
+    s.style.opacity=Math.random();
+    s.style.width=s.style.height=(Math.random()*7+4)+"px";
+    document.body.appendChild(s);
 }
+
+/* ENFEITES SUBINDO */
+setInterval(()=>{
+    const d=document.createElement("div");
+    d.classList.add("decorate");
+    const itens=["🎄","🎁","✨","❄️","❤️","⭐","🦌","☃️"];
+    d.textContent=itens[Math.floor(Math.random()*itens.length)];
+    d.style.left=Math.random()*100+"vw";
+    d.style.fontSize=(Math.random()*20+40)+"px";
+    d.style.animationDuration=(Math.random()*6+8)+"s";
+    document.body.appendChild(d);
+    setTimeout(()=>d.remove(),12000);
+},1200);
 </script>
 
 <div class="container">
-  <h1>Feliz Aniversário, Rayzoca 🎀</h1>
+    <h1>🎀 Feliz Aniversário, Rayzoca 🎄✨</h1>
 
-  <p>
-Feliz aniversário, Rayzoca!
+<p>
+Hoje é um dia especial — não só porque é seu aniversário,  
+mas porque uma pessoa como você existe no mundo.
 
-Hoje você comemora mais um ano de vida...
-(RESTO DO SEU TEXTO AQUI)
-  </p>
+Que o seu novo ciclo seja cheio de paz, amor, risadas  
+e momentos que aqueçam seu coração como o brilho do Natal.  
+Você ilumina a vida das pessoas ao seu redor sem perceber…  
+e isso é raro, é bonito, é seu.  
 
-  <!-- GALERIA DE JOGOS -->
-  <div class="covers">
+Que Deus te abençoe, proteja e acompanhe cada passo seu.  
+E que você continue sendo essa luz tão única.  
 
-    <!-- Murder Mystery 2 -->
-    <img src="https://www.roblox.com/asset-thumbnail/image?assetId=142823291&width=420&height=420&format=png" alt="Murder Mystery 2">
+Feliz aniversário, Rayzoca.  
+Você é especial — hoje, amanhã e sempre. 🎄✨🎁  
+</p>
 
-    <!-- Brookhaven -->
-    <img src="https://www.roblox.com/asset-thumbnail/image?assetId=4924922222&width=420&height=420&format=png" alt="Brookhaven">
-
-    <!-- Piggy -->
-    <img src="https://www.roblox.com/asset-thumbnail/image?assetId=4626300779&width=420&height=420&format=png" alt="Piggy">
-
-    <!-- Adopt Me -->
-    <img src="https://www.roblox.com/asset-thumbnail/image?assetId=4517039792&width=420&height=420&format=png" alt="Adopt Me">
-
-    <!-- Blox Fruits -->
-    <img src="https://www.roblox.com/asset-thumbnail/image?assetId=2753915549&width=420&height=420&format=png" alt="Blox Fruits">
-
-    <!-- Doors -->
-    <img src="https://www.roblox.com/asset-thumbnail/image?assetId=6516141723&width=420&height=420&format=png" alt="Doors">
-
-  </div>
-
-  <!-- MÚSICA -->
-  <div class="music">
-    <audio id="bgm" controls autoplay>
-      <source src="./blue-_slowed-down_.mp3" type="audio/mpeg">
-    </audio>
-  </div>
-
+    <div class="music">
+        <audio id="bgm" controls autoplay>
+            <source src="./blue-_slowed-down_.mp3" type="audio/mpeg">
+        </audio>
+    </div>
 </div>
-
-<!-- BALÕES E CORAÇÕES -->
-<script>
-setInterval(()=>{
-  const em = document.createElement("div");
-  em.classList.add("float");
-  em.textContent = Math.random() > 0.5 ? "🎈" : "❤️";
-  em.style.left = Math.random()*100+"vw";
-  em.style.fontSize = (Math.random()*20 + 30)+"px";
-  em.style.animationDuration = (Math.random()*6 + 6)+"s";
-  document.body.appendChild(em);
-  setTimeout(()=>em.remove(), 12000);
-}, 1500);
-</script>
 
 </body>
 </html>
